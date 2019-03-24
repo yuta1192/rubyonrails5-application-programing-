@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Railbook</title>
+    <title><%= yield(:title) || 'Rails入門' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag %>
+    <%= favicon_link_tag 'favicon.icon %>
+    <%= favicon_link_tag 'fav-icon.ong, type: 'image/png' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= auto_discovery_link_tag(:rss,
+      { controller: :books, action: :index, id: :rails },
+      title: 'サーバサイドの学び舎 - WINGS -'
+    ) %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
   </body>
 </html>

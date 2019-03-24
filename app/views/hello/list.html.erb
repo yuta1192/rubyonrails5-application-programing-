@@ -1,12 +1,15 @@
 <table>
+<%= debug(@books) %>
   <tr>
     <th>ISBNコード</th><th>書名</th><th>価格</th>
     <th>出版社</th><th>刊行日</th><th>ダウンロード</th>
   </tr>
   <% @books.each do |book| %>
     <tr>
-      <td><%= book.isbn %></td>
-      <td><%= book.title %></td>
+      <td style="background-color:<%= cycle('#FFffFF', '#FFff99') %>">
+        <%= book.isbn %></td>
+      <td style="background-color:<%= current_cycle %>">
+        <%= book.title %></td>
       <td><%= book.price %>円</td>
       <td><%= book.publish %></td>
       <td><%= book.published %></td>
