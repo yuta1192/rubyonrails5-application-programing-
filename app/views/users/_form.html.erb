@@ -17,13 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_confirmation %><br />
+    <%= f.text_field :email_confirmation %>
   </div>
 
   <div class="field">
@@ -37,8 +42,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :reviews_count %>
-    <%= form.number_field :reviews_count %>
+    <%= form.label :agreement %><br />
+    <%= f.check_box :agreement %>
   </div>
 
   <div class="actions">
