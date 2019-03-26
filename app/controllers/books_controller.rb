@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   layout 'product'
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  redirect_to @book, info: 'Book was successfully created.'
 
   # GET /books
   # GET /books.json
