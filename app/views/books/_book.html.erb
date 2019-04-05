@@ -2,6 +2,7 @@
 <%=book_iteration.index + 1 %>
 <% type = :details if tyoe.nil? %>
 <% if type == :details %>
+<% cache(book) do %>
 <img src="http://www.wings.msn.to/books/<%= book.isbn%>/
 <%= book.isbn%>_logo.jpg" width="80" height="30" /><br />
 <% end %>
@@ -9,5 +10,7 @@
 <%= book.publish %>/発行<br />
 定価 <%= book.prive %>円 (+税) <br />
 ISBN <%= book.isbn %><br />
-発刊日: <%= book.published %>
+発刊日: <%= book.published %><br />
+レビュー: <ul><%= render book.reviews %></ul>
+<% end %>
 </p>
